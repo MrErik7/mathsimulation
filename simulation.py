@@ -1,10 +1,11 @@
 import random
+import numpy as np
 import matplotlib.pyplot as plt
 
 # Variabel definiering
 item_value = 50
-people_count = 50
-max_days = 100
+people_count = 480
+max_days = 250
 
 # Skapa en lista med X antal människor, med X antal pengar
 people = []
@@ -36,10 +37,18 @@ while days < max_days:
 # Skapa en lista för person 1 --> person 50
 people_number = list(range(1, people_count + 1)) 
 
+# Beräkna variansen och standardavvikelsen
+variance = np.var(people)
+std_deviation = np.std(people)
+
 # Sortera listan
 people.sort(reverse=True)
 
 # Måla upp ett visuellt diagram
 plt.bar(people_number, people)
+plt.xlabel('Personer')
+plt.ylabel('Kronor')
+plt.title('Slumpmässig ojämlikhet')
+plt.figtext(0.6, 0.7, f'Varians: {variance:.2f}\nStandard avvikelse: {std_deviation:.2f}\nAntal dagar: {max_days}', ha='left')
 plt.show()
 
