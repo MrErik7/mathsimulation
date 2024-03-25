@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # Variabel definiering
 item_value = 50
 people_count = 480
-max_days = 250
+max_days = 100
 
 # Skapa en lista med X antal människor, med X antal pengar
 people = []
@@ -41,8 +41,10 @@ people_number = list(range(1, people_count + 1))
 variance = np.var(people)
 std_deviation = np.std(people)
 
-# Sortera listan
-people.sort(reverse=True)
+people.sort()
+
+
+print(people)
 
 # Måla upp ett visuellt diagram
 plt.bar(people_number, people)
